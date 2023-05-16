@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Album } from '../models/album';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AlbumsService } from '../services/albums.service';
 import { AlbumInfo } from '../models/albumInfo';
+import { SongInfo } from '../models/songInfo';
 
 @Component({
   selector: 'app-album-info',
@@ -13,6 +14,7 @@ export class AlbumInfoComponent {
   @Input() album ?: AlbumInfo;
   albumId="";
   totalSongs=0;
+  songFiltered?:SongInfo;
   constructor(private route : ActivatedRoute, private albumService: AlbumsService){}
   
   ngOnInit(): void{
@@ -31,7 +33,7 @@ export class AlbumInfoComponent {
         })
     })
   }
-  
+
   likeSong(){
     this.albumService.likeAlbum(this.albumId)
         .subscribe({
@@ -58,5 +60,15 @@ export class AlbumInfoComponent {
           },
           error: (err) => console.log(err)
         });
+  }
+
+  onChange(name: string) {
+    this.albumService.getSongByName(this.albumId,name)
+      .subscribe({
+        next: (data: SongInfo) => {
+          this.songFiltered = data
+        },
+        error: err => console.log(err)
+      });  
   }
 }

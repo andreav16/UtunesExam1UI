@@ -11,8 +11,7 @@ import { AlbumInfoComponent } from './album-info/album-info.component';
   declarations: [
     AppComponent,
     AlbumsComponent,
-    AlbumInfoComponent
-  ],
+    AlbumInfoComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

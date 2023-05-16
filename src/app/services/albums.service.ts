@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Album } from '../models/album';
 import { environment } from 'src/environments/environment';
 import { AlbumInfo } from '../models/albumInfo';
+import { SongInfo } from '../models/songInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +20,16 @@ export class AlbumsService {
     return this.httpClient.get<AlbumInfo>(`${environment.baseApiUrl}/Albums/${id}`);
   }
 
+  getSongByName(id: string | null, name:string|null):Observable<SongInfo>{
+    return this.httpClient.get<SongInfo>(`${environment.baseApiUrl}/Albums/${id}/songs/${name}`);
+  }
+
   likeAlbum(id: string | null): Observable<Album> {
     return this.httpClient.put<Album>(`${environment.baseApiUrl}/Albums/${id}/like`, null);
   }
+
   dislikeAlbum(id: string | null): Observable<Album> {
     return this.httpClient.put<Album>(`${environment.baseApiUrl}/Albums/${id}/dislike`, null);
   }
+  
 }
