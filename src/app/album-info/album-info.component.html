@@ -9,13 +9,13 @@
             Reseña:
             <input type="text" [value]="album.review" class="form-control">
             Precio:
-            <input type="text" [value]="album.albumPrice" class="form-control">
+            <input type="number" [value]="album.albumPrice" class="form-control">
             Puntaje:
             <input type="number" [value]="album.score" class="form-control">
-            Total de canciones: <input type="number" [value]="totalSongs">
+            Total de canciones: <input type="number" style="margin-top: 15px;" [value]="totalSongs">
             <br>
             Canciones:
-            <div class="card col-sm-3 my-1 mx-4" *ngFor="let song of album.songs">
+            <div class="card col-sm-3 my-1 mx-4" style="padding-top: 20px;" *ngFor="let song of album.songs">
                 <div class="card-text">
                     <ul>
                       <li>
@@ -44,7 +44,9 @@
     </div>
 </div>
 <br>
+<div style="background-color: #ddede1; margin-top: 20px;">
 <form (change)="onChange(nameInput.value)">
+    <h4 style="margin-left: 15px; padding-top: 15px;">Filtro de Canción</h4>
     <div class="form-group">
       <input #nameInput type="text" class="form-control" placeholder="Ingrese nombre de canción">
     </div>
@@ -60,5 +62,5 @@
     <br>
     Precio:
     {{songFiltered?.songPrice}}Lps
-
   </div>
+</div>
