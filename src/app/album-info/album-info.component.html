@@ -1,0 +1,44 @@
+<div *ngIf="album" class="card">
+    <div class="card-body">
+        <h3 class="card-title">
+            {{album.name}}
+        </h3>
+        <div class="card-text">
+            Artista: 
+            <input type="text" [value]="album.artist" class="form-control">
+            Reseña:
+            <input type="text" [value]="album.review" class="form-control">
+            Precio:
+            <input type="text" [value]="album.albumPrice" class="form-control">
+            Puntaje:
+            <input type="number" [value]="album.score" class="form-control">
+            Total de canciones: <input type="number" [value]="totalSongs">
+            Canciones:
+            <div class="card col-sm-3 my-1 mx-4" *ngFor="let song of album.songs">
+                <div class="card-text">
+                    <ul>
+                      <li>
+                        Nombre canción: {{song.name}}
+                      </li>
+                      <li>
+                        Artista: {{song.artist}}
+                      </li>
+                      <li>
+                        Precio: {{song.songPrice}}
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+              
+        </div>
+        <br>
+        <div>
+            <button (click)="likeSong()" class="btn-primary btn col-sm-4 mx-4">
+                Like
+            </button>
+            <button (click)="dislikeSong()" class="btn-danger btn col-sm-4 mx-4 ">
+                Dislike
+            </button>
+        </div>
+    </div>
+</div>
