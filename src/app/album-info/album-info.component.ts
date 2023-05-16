@@ -3,7 +3,7 @@ import { Album } from '../models/album';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AlbumsService } from '../services/albums.service';
 import { AlbumInfo } from '../models/albumInfo';
-import { SongInfo } from '../models/songInfo';
+import { SongInfo } from '../models/SongInfo';
 
 @Component({
   selector: 'app-album-info',

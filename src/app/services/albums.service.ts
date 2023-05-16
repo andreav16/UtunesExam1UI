@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Album } from '../models/album';
 import { environment } from 'src/environments/environment';
 import { AlbumInfo } from '../models/albumInfo';
-import { SongInfo } from '../models/songInfo';
+import { SongInfo } from '../models/SongInfo';
 
 @Injectable({
   providedIn: 'root'

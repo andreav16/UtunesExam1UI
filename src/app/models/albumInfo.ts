@@ -1,4 +1,4 @@
-import { SongInfo } from "./songInfo";
+import { SongInfo } from "../models/SongInfo";
 
 export interface AlbumInfo{
     name:string;
